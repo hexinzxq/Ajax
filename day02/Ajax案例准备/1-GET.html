@@ -25,7 +25,8 @@
             // xhr.setRequestHeader("Access-Control-Allow-Oringn","*")
             // response.setHeader('Access-Control-Allow-Oringn','*');
 
-            xhr.open('GET','http://127.0.0.1:8000/server');
+            //Ajax设置请求参数的方法
+            xhr.open('GET','http://127.0.0.1:8000/server?a=100&b=200&c=300');
             //3.发送
             xhr.send();
             //4.事件绑定 处理服务端返回的结果

@@ -1,5 +1,6 @@
 // 1.网址：express.com.cn   安装node i express --save
 //①引入express框架
+const { json } = require("body-parser");
 const express = require("express");
 
 //②创建应用对象
@@ -79,7 +80,7 @@ app.get('/ie',(request,response)=>{
 });
 
 //延时响应
-app.get('/delay',(request,response)=>{
+app.all('/delaydir',(request,response)=>{
     //设置响应头,设置允许跨域
     response.header('Access-Control-Allow-Origin', "*");
     response.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length,Authorization,Accept,X-Requested-With');
@@ -90,6 +91,19 @@ app.get('/delay',(request,response)=>{
     //设置响应体
     response.send('延时响应');
     },3000);
+});
+
+//jQuery服务
+app.all('/jQuery-server',(request,response)=>{
+    //设置响应头,设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin', "*");
+    response.header('Access-Control-Allow-Headers', 'Content-Type,Content-Length,Authorization,Accept,X-Requested-With','*');
+    response.header('Access-Control-Allow-Methods','PUT,POST,GET,DELETE,OPTIONS');
+    response.header('X-Powered-By', '3.2.1')
+
+    const data = {name : "hexin"};
+    // response.send('HELLO jQuery AJAX');
+    response.send(JSON.stringify(data));
 });
 
 
