@@ -4,7 +4,6 @@ const express = require("express");
 
 //②创建应用对象
 const app = express();
-app.port
 //③创建路由规则
 //request是对请求报文的封装
 //response是对响应报文的封装
