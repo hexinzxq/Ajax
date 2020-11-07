@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test01</title>
+</head>
+<body>
+    <script>
+        //父类构造函数
+        function Parent(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        //父类构造函数原型添加的方法
+        Parent.prototype.setName = function(name){
+            this.name = name;
+            console.log(name);
+        }
+
+        //这是子类的构造函数
+        function Child(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        
+        //这是给子类构造函数原型添加的方法
+        Child.prototype.setAge = function(age){
+            this.age = age;
+            console.log(age);
+        }
+
+        //这是将子类构造函数的原型创建为父类的一个实例
+        Child.prototype = new Parent('Jack','34');
+        //校准子类的construstor属性
+        Child.prototype.constructor = Child;
+
+
+        //创建一个子类实例，测试能不能去调用父类的setName方法
+        var ch = new Child('Jenny','18');
+        ch.setName('Nikon');
+    </script>
+</body>
+</html>

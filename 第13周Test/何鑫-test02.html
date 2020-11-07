@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test02</title>
+</head>
+<body>
+    <button id="btn">点击按钮等待3秒见证奇妙</button>
+    <script>
+        var intId;
+        var btn = document.getElementById("btn");
+        btn.onclick = function(){
+            clearInterval(intId);
+                intId = setInterval(function(){
+                alert("其实也没啥奇妙的，就完成了一个回调函数3秒后实现~~~");
+            },3000);
+        }  
+    </script>
+</body>
+</html>
